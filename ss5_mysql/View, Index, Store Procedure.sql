@@ -66,15 +66,15 @@ call add_new_product('pp5','may dem tien', 100,2,'tốt');
 select * from products;
 -- Tạo store procedure sửa thông tin sản phẩm theo id
 delimiter $$
-create procedure update_procedure(in product_id int, in product_code varchar(45))
+create procedure update_procedure(in product_id int,in product_code varchar(45) , in product_name varchar(45))
 begin 
 update products
-set productcode = product_code
+set productcode = product_code,productname = product_name
 where id = product_id;
 end $$
 delimiter ;
-call update_procedure(1,'p002');
-
+call update_procedure(3,'p005','Máy giặt');
+drop
 -- Tạo store procedure xoá sản phẩm theo id
 delimiter //
 create procedure delete_product_by_id(in product_id int)
